@@ -16,8 +16,8 @@ const Portfolio = () => {
         'Secure backend with JWT & bcrypt',
         'MongoDB database integration'
       ],
-      github: 'https://github.com/Harsha-T-G',
-      demo: '#',
+      github: 'https://github.com/Harsha-T-G/web-chat',
+      demo: 'https://web-chat-backend-two.vercel.app',
       color: 'bg-blue-50 text-blue-600'
     },
     {
@@ -32,7 +32,7 @@ const Portfolio = () => {
         'Context API for state management',
         'Async state handling'
       ],
-      github: 'https://github.com/Harsha-T-G',
+      github: 'https://github.com/Harsha-T-G/World-wise-React',
       demo: '#',
       color: 'bg-green-50 text-green-600'
     }
