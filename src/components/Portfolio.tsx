@@ -17,7 +17,7 @@ const Portfolio = () => {
         'MongoDB database integration'
       ],
       github: 'https://github.com/Harsha-T-G/web-chat',
-      demo: 'https://web-chat-backend-two.vercel.app',
+      demo: 'https://web-chat-1-g3na.onrender.com/',
       color: 'bg-blue-50 text-blue-600'
     },
     {
