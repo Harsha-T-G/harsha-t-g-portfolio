@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Mail, Phone, Linkedin, Github, Code, Send } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Code, Send, Loader2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,19 +13,46 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Simulate form submission
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+  // Initialize EmailJS
+  emailjs.init('7yJ5Kv0Bn09C2D-gN');
 
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_g3bvbgp', // Service ID
+        'template_50liy2v', // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Harsha',
+        }
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset form after successful submission
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Something went wrong. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -111,6 +139,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
+                    disabled={isLoading}
                     className="w-full"
                   />
                 </div>
@@ -127,6 +156,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    disabled={isLoading}
                     className="w-full"
                   />
                 </div>
@@ -142,6 +172,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
+                    disabled={isLoading}
                     className="w-full min-h-[120px]"
                   />
                 </div>
@@ -149,10 +180,20 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary-hover text-primary-foreground"
+                  disabled={isLoading}
+                  className="w-full bg-primary hover:bg-primary-hover text-primary-foreground disabled:opacity-50"
                 >
-                  <Send size={20} className="mr-2" />
-                  Send Message
+                  {isLoading ? (
+                    <>
+                      <Loader2 size={20} className="mr-2 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} className="mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
