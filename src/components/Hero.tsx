@@ -26,7 +26,6 @@ const Hero = () => {
           {/* Content */}
           <div className="flex-1 text-center lg:text-left animate-fade-in">
             <div className="mb-6">
-              <p className="text-muted-foreground font-medium mb-2">Hello, I'm</p>
               <h1 className="text-4xl md:text-6xl font-display font-bold text-hero-text mb-4">
                 Harsha T G
               </h1>
