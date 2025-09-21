@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/harsha-profile.jpg';
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
