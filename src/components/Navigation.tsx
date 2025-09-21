@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
@@ -21,6 +21,16 @@ const Navigation = () => {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
     }
+  };
+
+  const downloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/resume-Harsha-T-G.pdf';
+    link.download = 'Harsha-T-G-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setIsMobileMenuOpen(false);
   };
 
   const navItems = [
@@ -59,10 +69,11 @@ const Navigation = () => {
               </button>
             ))}
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={downloadCV}
               className="bg-primary hover:bg-primary-hover text-primary-foreground"
             >
-              Get In Touch
+              <Download size={16} className="mr-2" />
+              Download CV
             </Button>
           </div>
 
@@ -90,10 +101,11 @@ const Navigation = () => {
               ))}
               <div className="px-4">
                 <Button
-                  onClick={() => scrollToSection('contact')}
+                  onClick={downloadCV}
                   className="w-full bg-primary hover:bg-primary-hover text-primary-foreground"
                 >
-                  Get In Touch
+                  <Download size={16} className="mr-2" />
+                  Download CV
                 </Button>
               </div>
             </div>
