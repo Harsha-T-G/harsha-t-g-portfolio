@@ -1,4 +1,4 @@
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profileImage from '@/assets/harsha-profile.jpg';
 
@@ -8,6 +8,15 @@ const Hero = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const downloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/resume-Harsha-T-G.pdf';
+    link.download = 'Harsha-T-G-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -42,10 +51,11 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                onClick={() => scrollToSection('contact')}
+                onClick={downloadCV}
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
-                Get In Touch
+                <Download size={16} className="mr-2" />
+                Download CV
               </Button>
             </div>
 
