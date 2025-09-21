@@ -20,7 +20,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center bg-gradient-section">
+    <section id="home" className="min-h-screen flex items-center bg-gradient-section pt-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Content */}
