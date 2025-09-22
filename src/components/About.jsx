@@ -6,22 +6,26 @@ const About = () => {
     {
       icon: Code,
       title: 'Technical Excellence',
-      description: 'Proficient in Java, JavaScript, React, and modern web technologies with a focus on clean, efficient code.'
+      description: 'Proficient in Java, JavaScript, React, and modern web technologies with a focus on clean, efficient code.',
+      color: 'bg-primary/10 text-primary'
     },
     {
       icon: Target,
       title: 'Problem Solving',
-      description: 'Strong analytical mindset with experience in data structures, algorithms, and solving complex challenges.'
+      description: 'Strong analytical mindset with experience in data structures, algorithms, and solving complex challenges.',
+      color: 'bg-hero-accent/10 text-hero-accent'
     },
     {
       icon: Users,
       title: 'Collaboration',
-      description: 'Excellent team player with strong communication skills and experience in collaborative development.'
+      description: 'Excellent team player with strong communication skills and experience in collaborative development.',
+      color: 'bg-accent/10 text-accent'
     },
     {
       icon: GraduationCap,
       title: 'Continuous Learning',
-      description: 'Passionate about staying updated with latest technologies and best practices in software development.'
+      description: 'Passionate about staying updated with latest technologies and best practices in software development.',
+      color: 'bg-secondary text-secondary-foreground'
     }
   ];
 
@@ -63,22 +67,34 @@ const About = () => {
             </div>
 
             {/* Education */}
-            <Card className="bg-gradient-card shadow-card">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <GraduationCap className="text-primary" size={24} />
-                  <h4 className="text-xl font-display font-semibold text-foreground">Education</h4>
-                </div>
-                <div className="space-y-3">
-                  <div>
-                    <h5 className="font-semibold text-foreground">Bachelor of Engineering in Computer Science</h5>
-                    <p className="text-muted-foreground">KLE Institute of Technology, Hubballi</p>
-                    <p className="text-sm text-muted-foreground">2022 - 2026 | CGPA: 8.24</p>
+            <Card className="bg-gradient-card shadow-card border-0 overflow-hidden">
+              <CardContent className="p-0">
+                <div className="bg-gradient-hero p-6 mb-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                      <GraduationCap className="text-white" size={24} />
+                    </div>
+                    <h4 className="text-xl font-display font-semibold text-white">Education</h4>
                   </div>
-                  <div>
-                    <h5 className="font-semibold text-foreground">12th Grade (Science)</h5>
-                    <p className="text-muted-foreground">Morarji Desai Residential PU College, Hubballi</p>
-                    <p className="text-sm text-muted-foreground">2020 - 2022 | Percentage: 96.83%</p>
+                  <p className="text-white/90 text-sm">Academic background and achievements</p>
+                </div>
+                <div className="px-6 pb-6 space-y-6">
+                  <div className="relative pl-6">
+                    <div className="absolute left-0 top-1 w-3 h-3 bg-primary rounded-full"></div>
+                    <div className="absolute left-1.5 top-4 w-0.5 h-16 bg-primary/20"></div>
+                    <div>
+                      <h5 className="font-display font-semibold text-foreground mb-1">Bachelor of Engineering in Computer Science</h5>
+                      <p className="text-primary font-medium mb-1">KLE Institute of Technology, Hubballi</p>
+                      <p className="text-sm text-muted-foreground">2022 - 2026 • CGPA: 8.24/10</p>
+                    </div>
+                  </div>
+                  <div className="relative pl-6">
+                    <div className="absolute left-0 top-1 w-3 h-3 bg-hero-accent rounded-full"></div>
+                    <div>
+                      <h5 className="font-display font-semibold text-foreground mb-1">Pre-University (Science)</h5>
+                      <p className="text-hero-accent font-medium mb-1">Morarji Desai Residential PU College, Hubballi</p>
+                      <p className="text-sm text-muted-foreground">2020 - 2022 • Percentage: 96.83%</p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -90,13 +106,14 @@ const About = () => {
             {highlights.map((highlight, index) => (
               <Card 
                 key={index}
-                className="bg-gradient-card shadow-card hover:shadow-hover transition-all duration-300 group"
+                className="bg-gradient-card shadow-card hover:shadow-hover transition-all duration-300 group border-0"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                    <highlight.icon className="text-primary" size={24} />
+                  <div className={`w-16 h-16 ${highlight.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300`}>
+                    <highlight.icon size={24} />
                   </div>
-                  <h4 className="font-display font-semibold text-foreground mb-2">
+                  <h4 className="font-display font-semibold text-foreground mb-3">
                     {highlight.title}
                   </h4>
                   <p className="text-muted-foreground text-sm leading-relaxed">
