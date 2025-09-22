@@ -7,37 +7,37 @@ const Skills = () => {
       icon: Code,
       title: 'Frontend Development',
       skills: ['React.js', 'JavaScript (ES6+)', 'HTML5 & CSS3', 'Tailwind CSS', 'Responsive Design', 'React Router'],
-      color: 'bg-blue-50 text-blue-600'
+      color: 'bg-primary/10 text-primary'
     },
     {
       icon: Server,
       title: 'Backend Development',
       skills: ['Node.js', 'Express.js', 'RESTful APIs', 'Authentication (JWT)', 'Socket.io', 'Server-side Rendering'],
-      color: 'bg-green-50 text-green-600'
+      color: 'bg-hero-accent/10 text-hero-accent'
     },
     {
       icon: Database,
       title: 'Database & Cloud',
       skills: ['MongoDB', 'MySQL', 'Database Design', 'Cloudinary', 'API Integration', 'Data Modeling'],
-      color: 'bg-purple-50 text-purple-600'
+      color: 'bg-accent/10 text-accent'
     },
     {
       icon: Globe,
       title: 'Web Technologies',
       skills: ['HTTP/HTTPS', 'Web Security', 'Performance Optimization', 'SEO Basics', 'Progressive Web Apps', 'Version Control (Git)'],
-      color: 'bg-orange-50 text-orange-600'
+      color: 'bg-secondary text-secondary-foreground'
     },
     {
       icon: Smartphone,
       title: 'Programming Languages',
       skills: ['Java', 'JavaScript', 'Python', 'C Programming', 'Object-Oriented Programming', 'Functional Programming'],
-      color: 'bg-red-50 text-red-600'
+      color: 'bg-primary/20 text-primary'
     },
     {
       icon: Cpu,
       title: 'Tools & Technologies',
       skills: ['VS Code', 'Git & GitHub', 'npm/yarn', 'Postman', 'Chrome DevTools', 'Responsive Testing'],
-      color: 'bg-teal-50 text-teal-600'
+      color: 'bg-muted text-muted-foreground'
     }
   ];
 

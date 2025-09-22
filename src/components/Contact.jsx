@@ -69,35 +69,35 @@ const Contact = () => {
       label: 'Email',
       value: 'harshatg2004@gmail.com',
       link: 'mailto:harshatg2004@gmail.com',
-      color: 'bg-red-50 text-red-600'
+      color: 'bg-primary/10 text-primary'
     },
     {
       icon: Phone,
       label: 'Phone',
       value: '+91 9113950727',
       link: 'tel:+919113950727',
-      color: 'bg-green-50 text-green-600'
+      color: 'bg-hero-accent/10 text-hero-accent'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       value: 'harsha-t-g-07117525b',
       link: 'https://linkedin.com/in/harsha-t-g-07117525b',
-      color: 'bg-blue-50 text-blue-600'
+      color: 'bg-accent/10 text-accent'
     },
     {
       icon: Github,
       label: 'GitHub',
       value: 'Harsha-T-G',
       link: 'https://github.com/Harsha-T-G',
-      color: 'bg-gray-50 text-gray-700'
+      color: 'bg-secondary text-secondary-foreground'
     },
     {
       icon: Code,
       label: 'LeetCode',
       value: 'harsha__01',
       link: 'https://leetcode.com/u/harsha__01/',
-      color: 'bg-orange-50 text-orange-600'
+      color: 'bg-muted text-muted-foreground'
     }
   ];
 

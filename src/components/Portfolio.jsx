@@ -18,7 +18,7 @@ const Portfolio = () => {
       ],
       github: 'https://github.com/Harsha-T-G/web-chat',
       demo: 'https://web-chat-1-g3na.onrender.com/',
-      color: 'bg-blue-50 text-blue-600'
+      color: 'bg-primary/10 text-primary'
     },
     {
       title: 'WorldWise (Track Your Adventures)',
@@ -34,7 +34,7 @@ const Portfolio = () => {
       ],
       github: 'https://github.com/Harsha-T-G/World-wise-React',
       demo: '#',
-      color: 'bg-green-50 text-green-600'
+      color: 'bg-hero-accent/10 text-hero-accent'
     }
   ];
 

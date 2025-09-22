@@ -14,7 +14,7 @@ const Services = () => {
         'State Management',
         'Performance Optimization'
       ],
-      color: 'bg-blue-50 text-blue-600'
+      color: 'bg-primary/10 text-primary'
     },
     {
       icon: Server,
@@ -27,7 +27,7 @@ const Services = () => {
         'Server-Side Logic',
         'Third-Party API Integration'
       ],
-      color: 'bg-green-50 text-green-600'
+      color: 'bg-hero-accent/10 text-hero-accent'
     },
     {
       icon: Globe,
@@ -40,7 +40,7 @@ const Services = () => {
         'Real-Time Features',
         'Deployment & Hosting'
       ],
-      color: 'bg-purple-50 text-purple-600'
+      color: 'bg-accent/10 text-accent'
     },
     {
       icon: Zap,
@@ -53,7 +53,7 @@ const Services = () => {
         'Cloud Services Integration',
         'Custom API Development'
       ],
-      color: 'bg-orange-50 text-orange-600'
+      color: 'bg-secondary text-secondary-foreground'
     }
   ];
 
