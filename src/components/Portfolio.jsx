@@ -39,49 +39,63 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 bg-gradient-section">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Featured Projects
+    <section id="portfolio" className="py-24 bg-gradient-to-b from-secondary/30 to-background relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 left-20 w-80 h-80 bg-hero-accent/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-4">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+            <span className="text-primary font-medium text-sm">Featured Work</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-hero-text mb-6">
+            My <span className="text-primary">Projects</span> &<br/>
+            Recent Work
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A showcase of my recent work demonstrating full-stack development skills and innovative solutions
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-7xl mx-auto mb-20">
           {projects.map((project, index) => (
             <Card 
               key={index}
-              className="bg-gradient-card shadow-card hover:shadow-hover transition-all duration-300 animate-fade-in group overflow-hidden"
+              className="bg-gradient-card shadow-card hover:shadow-hero transition-all duration-500 animate-fade-in group border-0 overflow-hidden"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`w-16 h-16 rounded-lg ${project.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <project.image size={32} />
+              <CardHeader className="pb-6">
+                <div className="flex items-start gap-6 mb-6">
+                  <div className={`w-20 h-20 rounded-2xl ${project.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    <project.image size={36} />
                   </div>
-                  <div>
-                    <CardTitle className="text-xl font-display font-semibold text-foreground">
+                  <div className="flex-1">
+                    <CardTitle className="text-2xl font-display font-bold text-hero-text mb-3 group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </CardTitle>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-base">
                   {project.description}
                 </p>
               </CardHeader>
 
-              <CardContent>
+              <CardContent className="space-y-8">
                 {/* Tech Stack */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-foreground mb-3">Technologies Used:</h4>
+                <div>
+                  <h4 className="font-display font-semibold text-hero-text mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-gradient-hero rounded-full"></div>
+                    Technologies Used:
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                        className="px-4 py-2 bg-secondary/50 text-hero-text rounded-xl text-sm font-medium hover:bg-gradient-hero hover:text-white transition-all duration-300 cursor-default"
                       >
                         {tech}
                       </span>
@@ -90,36 +104,39 @@ const Portfolio = () => {
                 </div>
 
                 {/* Key Features */}
-                <div className="mb-6">
-                  <h4 className="font-semibold text-foreground mb-3">Key Features:</h4>
-                  <div className="space-y-2">
+                <div>
+                  <h4 className="font-display font-semibold text-hero-text mb-4 flex items-center gap-2">
+                    <div className="w-1 h-6 bg-gradient-hero rounded-full"></div>
+                    Key Features:
+                  </h4>
+                  <div className="grid gap-3">
                     {project.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-3">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                        <span className="text-muted-foreground text-sm">{feature}</span>
+                      <div key={featureIndex} className="flex items-center gap-3 p-2 rounded-lg hover:bg-secondary/30 transition-colors duration-200">
+                        <div className="w-2 h-2 bg-gradient-hero rounded-full"></div>
+                        <span className="text-muted-foreground font-medium text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-4 pt-4">
                   <Button
                     variant="outline"
-                    size="sm"
-                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                    size="lg"
+                    className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 font-semibold"
                     onClick={() => window.open(project.github, '_blank')}
                   >
-                    <Github size={16} className="mr-2" />
-                    Code
+                    <Github size={18} className="mr-2" />
+                    View Code
                   </Button>
                   <Button
-                    size="sm"
-                    className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
+                    size="lg"
+                    className="flex-1 bg-gradient-hero text-white hover:scale-105 transition-all duration-300 font-semibold shadow-lg"
                     onClick={() => window.open(project.demo, '_blank')}
                   >
-                    <ExternalLink size={16} className="mr-2" />
-                    Demo
+                    <ExternalLink size={18} className="mr-2" />
+                    Live Demo
                   </Button>
                 </div>
               </CardContent>
@@ -128,24 +145,29 @@ const Portfolio = () => {
         </div>
 
         {/* GitHub Call to Action */}
-        <div className="text-center mt-16">
-          <Card className="bg-gradient-card shadow-card max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <Globe className="w-16 h-16 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-display font-semibold text-foreground mb-4">
-                Explore More Projects
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Check out my GitHub profile for more projects and contributions to open-source development
-              </p>
-              <Button
-                size="lg"
-                onClick={() => window.open('https://github.com/Harsha-T-G', '_blank')}
-                className="bg-primary hover:bg-primary-hover text-primary-foreground"
-              >
-                <Github size={20} className="mr-2" />
-                Visit GitHub Profile
-              </Button>
+        <div className="text-center">
+          <Card className="bg-gradient-hero shadow-hero max-w-4xl mx-auto border-0 overflow-hidden">
+            <CardContent className="p-12 text-center relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-hero-accent/10"></div>
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Globe className="text-white" size={32} />
+                </div>
+                <h3 className="text-3xl font-display font-bold text-white mb-6">
+                  Explore More Projects
+                </h3>
+                <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+                  Check out my GitHub profile for more projects and contributions to open-source development
+                </p>
+                <Button
+                  size="lg"
+                  onClick={() => window.open('https://github.com/Harsha-T-G', '_blank')}
+                  className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all duration-300 font-bold text-lg px-8 py-4 shadow-lg"
+                >
+                  <Github size={20} className="mr-2" />
+                  Visit GitHub Profile
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </div>
